@@ -8,11 +8,16 @@ void write_to_pgm(int *image, char *image_name, int height, int width)
         printf("ERROR: Unable to create file %s\n", image_name);
         return;
     }
+    printf("-------------------******---------------------");
     // Writing Magic Number P2 to represent PGM Images.
+    printf("File Creating Initalized\n");
+    printf("File Format [P2]\n");
     fprintf(pgmimg, "P2\n");
     // Writing width and height of images.
-    fprintf(pgmimg, "%d %d\n", width, height);
+    printf("Image Height[%d]\nImage Width[%d]\n",height,width);
+    fprintf(pgmimg, "%d %d\n",height,width);
     // Writing the maximum gray value
+    printf("Maximum Gray Value [255]\n");
     fprintf(pgmimg, "255\n");
     for (int i = 0; i < height; i++)
     {
@@ -21,31 +26,6 @@ void write_to_pgm(int *image, char *image_name, int height, int width)
             int temp = *((image + i * width) + j);
             fprintf(pgmimg, "%d ", temp);
         }
-        fprintf(pgmimg, "\n");
     }
     fclose(pgmimg);
 }
-
-// int main()
-// {
-//     int image[13][13] = {
-//         {15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15},
-//         {31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31},
-//         {47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47, 47},
-//         {63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63},
-//         {79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79, 79},
-//         {95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95},
-//         {111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111, 111},
-//         {127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127, 127},
-//         {143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143, 143},
-//         {159, 159, 159, 159, 159, 159, 159, 159, 159, 159, 159, 159, 159},
-//         {175, 175, 175, 175, 175, 175, 175, 175, 175, 175, 175, 175, 175},
-//         {191, 191, 191, 191, 191, 191, 191, 191, 191, 191, 191, 191, 191},
-//         {207, 207, 207, 207, 207, 207, 207, 207, 207, 207, 207, 207, 207}};
-//     char *filename = "test.pgm";
-//     int height, width;
-//     height = 13;
-//     width = 13;
-//     write_to_pgm((int *)image, "test.pgm", height, width);
-//     return 0;
-// }

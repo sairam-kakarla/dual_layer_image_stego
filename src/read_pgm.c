@@ -1,12 +1,18 @@
 #include "PGM.h"
 int *allocate_space(int height, int width)
 {
+    /*
+    Function to allocate space for the image in memory.
+    Arguments: height, width of image,
+    Return Value: pointer the alllocated block of memory*/
     int *temp;
     temp = (int *)malloc(height * width * sizeof(int));
     return temp;
 }
 int *read_from_pgm(char *file_name, int *height, int *width)
 {
+    /*
+    Function */
     FILE *pgmimage;
     pgmimage = fopen(file_name, "r");
     if (!pgmimage)
@@ -14,7 +20,8 @@ int *read_from_pgm(char *file_name, int *height, int *width)
         printf("ERROR: Unable to read file %s\n", file_name);
         exit(1);
     }
-    char *metadata_buffer;
+    char metadata_buffer[100];
+    printf("-------------------******---------------------");
     printf("Reading PGM File.\n");
     fscanf(pgmimage, "%s", metadata_buffer);
     if (strcmp(metadata_buffer, "P2") == 0)
@@ -50,22 +57,6 @@ int *read_from_pgm(char *file_name, int *height, int *width)
             image_array[i * w + j] = temp;
         }
     }
-    printf("\n");
     fclose(pgmimage);
     return image_array;
 }
-// int main()
-// {
-//     char *file_name = "baboon.ascii.pgm";
-//     int height, width;
-//     int *image_array;
-//     image_array = NULL;
-//     image_array = read_from_pgm(file_name, &height, &width);
-//     if (!image_array)
-//     {
-//         printf("Image read unsuccessfully\n");
-//     }
-//     print(image_array);
-//     printf("\n");
-//     return 0;
-// }
