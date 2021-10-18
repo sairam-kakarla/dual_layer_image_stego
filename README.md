@@ -1,2 +1,21 @@
-# dual_layer_image_stego
+# DILS
 Parallel Dual Layer Image Steganography for pgm images.
+# Developers
+  - Sairam Kakarla
+  - K Uday
+  - M Nivas
+# Source Code
+ - ```src/read_pgm.c``` Contains functions to load the grayscale values from pgm file into memory.
+ - ```src/write_pgm.c``` Contains functions to create a pgm file from grascale values in memory.
+ - ```src/encode_in_pgm.c```
+ - ```src/decode_from_pgm.c```
+ - ```src/PGM.h``` Header file for project.
+
+# Tasks
+- [x] I/O of PGM Files.
+- [ ] Serial Encode.
+- [ ] Serial Decode.
+- [ ] Parallel Encode.
+- [ ] Parallel Decode.
+- [ ] Benchmark.
+
