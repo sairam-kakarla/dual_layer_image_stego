@@ -7,5 +7,6 @@ int main()
     int height, width, *image;
     image = read_from_pgm(fname, &height, &width);
     write_to_pgm(image, tname, height, width);
+    free(image);
     return 0;
 }

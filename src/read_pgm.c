@@ -3,7 +3,8 @@ int *allocate_space(int height, int width)
 {
     /*
     Function to allocate space for the image in memory.
-    Arguments: height, width of image,
+    Params: height [int - height of images]
+            width [int - height of images],
     Return Value: pointer the alllocated block of memory*/
     int *temp;
     temp = (int *)malloc(height * width * sizeof(int));
@@ -12,7 +13,12 @@ int *allocate_space(int height, int width)
 int *read_from_pgm(char *file_name, int *height, int *width)
 {
     /*
-    Function */
+    Function to read the grayscale values from a pgm file and store in a continous memory.
+    Updates the height,width;
+    Params: filename [char pointer - to file name]
+            hight [int pointer - to image height]
+            width [int pointer - to image width]
+    Return Value: pointer the memory block containing the grayscale values*/
     FILE *pgmimage;
     pgmimage = fopen(file_name, "r");
     if (!pgmimage)
@@ -21,7 +27,7 @@ int *read_from_pgm(char *file_name, int *height, int *width)
         exit(1);
     }
     char metadata_buffer[100];
-    printf("-------------------******---------------------");
+    printf("----------------------------------------------\n");
     printf("Reading PGM File.\n");
     fscanf(pgmimage, "%s", metadata_buffer);
     if (strcmp(metadata_buffer, "P2") == 0)
