@@ -19,3 +19,10 @@ Parallel Dual Layer Image Steganography for pgm images.
 - [ ] Parallel Decode.
 - [ ] Benchmark.
 
+# Execution
+**Requires GCC Compiler**  
+- clone the repo in working directory
+- ```cd dual_layer_image_stego``` to change to the project directory.
+- ```cd src```  to change to the source code directory.
+- ```make``` to make the application
+- ```./main``` to run the application
