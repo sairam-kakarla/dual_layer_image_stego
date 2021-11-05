@@ -1,8 +1,8 @@
 # DILS
 Parallel Dual Layer Image Steganography for pgm images.
 # Developers
-  - Lakshmi Sairam Kakarla
-  - K Uday
+  - [Lakshmi Sairam Kakarla](https://github.com/sairam-kakarla)
+  - [K Uday](https://github.com/udayreddy-ux)
   - [Maddukuri Nivas](https://github.com/Nani54325)
 # Source Code
  - ```src/read_pgm.c``` Contains functions to load the grayscale values from pgm file into memory.
