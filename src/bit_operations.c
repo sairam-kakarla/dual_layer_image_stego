@@ -48,6 +48,23 @@ int get_bit(int number, int index)
     return bit;
 }
 
-int get_lsb(int number){
-    return number&1;
+int get_lsb(int number)
+{
+    return number & 1;
+}
+
+int *generate_random_secret(int length)
+{
+    int *random_secret = (int *)malloc(length * sizeof(int));
+    if (!random_secret)
+    {
+        printf("ERROR: Memory Allocation for random secret data failed");
+        exit(1);
+    }
+    for (int i = 0; i < length; i++)
+    {
+        //(11 1111)2=(63)10;
+        random_secret[i] = rand() & 63;
+    }
+    return random_secret;
 }

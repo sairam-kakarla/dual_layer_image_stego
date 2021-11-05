@@ -24,13 +24,10 @@ void write_to_pgm(int *image, char *image_name, int height, int width)
     // Writing the maximum gray value
     printf("Maximum Gray Value [255]\n");
     fprintf(pgmimg, "255\n");
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height * width; i++)
     {
-        for (int j = 0; j < width; j++)
-        {
-            int temp = *((image + i * width) + j);
-            fprintf(pgmimg, "%d ", temp);
-        }
+        int temp = image[i];
+        fprintf(pgmimg, "%d ", temp);
     }
     fclose(pgmimg);
 }
