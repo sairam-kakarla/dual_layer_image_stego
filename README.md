@@ -21,7 +21,7 @@ Parallel Dual Layer Image Steganography for pgm images.
       -> Intermediate Layer Generation.  
       -> Final Layer Generation.
 - [ ] Serial Decode.
-- [ ] Parallel Encode.
+- [x] Parallel Encode.
 - [ ] Parallel Decode.
 - [ ] Benchmark.
 
