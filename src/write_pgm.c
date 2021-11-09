@@ -16,6 +16,7 @@ void write_to_pgm(int *image, char *image_name, int height, int width)
     printf("----------------------------------------------\n");
     // Writing Magic Number P2 to represent PGM Images.
     printf("File Creating Initalized\n");
+    printf("File Name [%s]\n", image_name);
     printf("File Format [P2]\n");
     fprintf(pgmimg, "P2\n");
     // Writing width and height of images.

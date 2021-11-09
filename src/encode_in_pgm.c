@@ -125,4 +125,5 @@ void generate_second_layer_pair1(int height, int width, int *p1, int *p1_l2, int
 
 void generate_second_layer_pair2(int height, int width, int *q1, int *p2_l2, int *q2_l2, int *p2_star, int *q2_star)
 {
+    
 }
