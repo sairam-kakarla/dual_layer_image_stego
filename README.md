@@ -7,7 +7,7 @@ Parallel Dual Layer Image Steganography for pgm images.
 # Source Code
  - ```src/read_pgm.c``` Contains functions to load the grayscale values from pgm file into memory.
  - ```src/write_pgm.c``` Contains functions to create a pgm file from grascale values in memory.
- - ```src/encode_in_pgm.c``` Contains functions of implementing parallel encoding.
+ - ```src/encode_in_pgm.c``` Contains functions for implementing parallel encoding.
  - ```src/decode_from_pgm.c```
  - ```src/PGM.h``` Header file for project.
  - ```src/bit_operations.c``` Contains functions to extract bit information and to generate random secret for testing.
