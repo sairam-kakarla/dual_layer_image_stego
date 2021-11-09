@@ -125,5 +125,27 @@ void generate_second_layer_pair1(int height, int width, int *p1, int *p1_l2, int
 
 void generate_second_layer_pair2(int height, int width, int *q1, int *p2_l2, int *q2_l2, int *p2_star, int *q2_star)
 {
-    
+    if (!p2_star | !q2_star)
+    {
+        printf("ERROR: Memory Allocation for Final State Failed\n");
+        exit(1);
+    }
+    for (int i = 0; i < height * width; i++)
+    {
+        if ((2 * q1[i]) > (p2_l2[i] + q2_l2[i]) && p2_l2[i] >= q2_l2[i])
+        {
+            q2_star[i] = q2_l2[i] + 2;
+            p2_star[i] = p2_l2[i] + 2;
+        }
+        else if ((2 * q1[i] + 2) == p2_l2[i] + q2_l2[i])
+        {
+            p2_star[i] = p2_l2[i] - 2;
+            q2_star[i] = q2_l2[2];
+        }
+        else
+        {
+            p2_star[i] = p2_l2[i];
+            q2_star[i] = q2_l2[i];
+        }
+    }
 }
