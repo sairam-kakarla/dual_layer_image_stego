@@ -7,7 +7,7 @@ Parallel Dual Layer Image Steganography for pgm images.
 # Source Code
  - ```src/read_pgm.c``` Contains functions to load the grayscale values from pgm file into memory.
  - ```src/write_pgm.c``` Contains functions to create a pgm file from grascale values in memory.
- - ```src/encode_in_pgm.c```
+ - ```src/encode_in_pgm.c``` Contains functions of implementing parallel encoding.
  - ```src/decode_from_pgm.c```
  - ```src/PGM.h``` Header file for project.
  - ```src/bit_operations.c``` Contains functions to extract bit information and to generate random secret for testing.
@@ -26,7 +26,9 @@ Parallel Dual Layer Image Steganography for pgm images.
 - [ ] Benchmark.
 
 # Execution
-**Requires GCC Compiler**  
+**Requires GCC Compiler**
+**Requires openmp**
+-```sudo apt install libomp-dev``` for installing openMp.
 - clone the repo in working directory
 - ```cd dual_layer_image_stego``` to change to the project directory.
 - ```cd src```  to change to the source code directory.
