@@ -11,3 +11,4 @@ void generate_layer_one(int *image, int *secret, int height, int width, int *p1_
 void generate_intermediate_two(int *secret, int height, int width, int *p1, int *q1, int *p1_l2, int *p2_l2, int *q1_l2, int *q2_l2);
 void generate_second_layer_pair1(int height, int width, int *p1, int *p1_l2, int *q1_l2, int *p1_star, int *q1_star);
 void generate_second_layer_pair2(int height, int width, int *q1, int *p2_l2, int *q2_l2, int *p2_star, int *q2_star);
+void encode(int *image, char *image_name, int *secret, int height, int width);
