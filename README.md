@@ -16,7 +16,7 @@ Parallel Dual Layer Image Steganography for pgm images.
 - [x] I/O of PGM Files.  
       -> Read pixel array from PGM Images.  
       -> Write pixel array to PGM Images.   
-- [ ] Serial Encode.  
+- [x] Serial Encode.  
       -> Layer One Generation.  
       -> Intermediate Layer Generation.  
       -> Final Layer Generation.
