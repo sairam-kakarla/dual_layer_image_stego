@@ -9,6 +9,7 @@ void generate_layer_one(int *image, int *secret, int height, int width, int *p1,
         printf("ERROR: Memory Allocation for first layer failed\n.");
         exit(1);
     }
+#pragma omp parallel for shared(image, secret, p1, q1) schedule(static, 4)
     for (int i = 0; i < height * width; i++)
     {
         // Generation of p1 in layer 1.
@@ -46,6 +47,7 @@ void generate_intermediate_two(int *secret, int height, int width, int *p1, int 
         printf("ERROR: Memory Allocation for intermediate layer failed\n");
         exit(1);
     }
+#pragma omp parallel for shared(secret, p1, q1, p1_l2, p2_l2, q1_l2, q2_l2) schedule(static, 4)
     for (int i = 0; i < height * width; i++)
     {
         //Generating p1' and p2'
@@ -108,6 +110,7 @@ void generate_second_layer_pair1(int height, int width, int *p1, int *p1_l2, int
         printf("ERROR: Memory Allocation for Final State Failed\n");
         exit(1);
     }
+#pragma omp parallel for schedule(static, 4) shared(p1, p1_l2, q1_l2, p1_star, q1_star)
     for (int i = 0; i < height * width; i++)
     {
         if ((2 * p1[i] + 2) == p1_l2[i] + q1_l2[i])
@@ -130,6 +133,7 @@ void generate_second_layer_pair2(int height, int width, int *q1, int *p2_l2, int
         printf("ERROR: Memory Allocation for Final State Failed\n");
         exit(1);
     }
+#pragma omp parallel for schedule(static, 4) shared(q1, p2_l2, q2_l2, p2_star, q2_star)
     for (int i = 0; i < height * width; i++)
     {
         if ((2 * q1[i]) > (p2_l2[i] + q2_l2[i]) && p2_l2[i] >= q2_l2[i])
