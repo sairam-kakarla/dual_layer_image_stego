@@ -13,12 +13,13 @@ int main()
         omp_set_num_threads(bench_mark_Thread[i]);
         printf("%d\n", omp_get_num_threads());
         startT = omp_get_wtime();
-        encode(image, fname, sd, height, width);
+        decode(height, width, "P1*_columns.ascii.pgm", "P2*_columns.ascii.pgm", "Q1*_columns.ascii.pgm", "Q2*_columns.ascii.pgm");
         endT = omp_get_wtime();
         bench_markTime[i] = endT - startT;
     }
     for (int i = 0; i < 11; i++)
         printf("Number of Thread:[%d]       Execution Time:[%.4f]\n", bench_mark_Thread[i], bench_markTime[i] * 1000);
+
     free(image);
     free(sd);
     return 0;

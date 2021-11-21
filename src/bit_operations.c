@@ -61,10 +61,54 @@ int *generate_random_secret(int length)
         printf("ERROR: Memory Allocation for random secret data failed");
         exit(1);
     }
+    FILE *secret = fopen("secret.txt", "w");
     for (int i = 0; i < length; i++)
     {
         //(11 1111)2=(63)10;
         random_secret[i] = rand() & 63;
+        fprintf(secret, "%d ", random_secret[i]);
+        if (i % 100 == 0)
+        {
+            fprintf(secret, "\n");
+        }
     }
+    fclose(secret);
     return random_secret;
+}
+
+void set_bit(int *number, int index, int bit)
+{
+    // Since we number is assured to be zero. So get_bit will return 0 for any number;
+    if (bit == 1)
+    {
+        switch (index)
+        {
+        case 1:
+            // (10 0000)2=(32)10
+            *number += 32;
+            break;
+        case 2:
+            // (01 0000)2=(16)10
+            *number += 16;
+            break;
+        case 3:
+            // (00 1000)2=(8)10
+            *number += 8;
+            break;
+        case 4:
+            // (00 0100)2=(4)10
+            *number += 4;
+            break;
+        case 5:
+            // (00 0010)2=(2)10
+            *number += 2;
+            break;
+        case 6:
+            // (00 0001)2=(1)10*number += 1;
+            break;
+        default:
+            printf("Invalid bit index\n");
+            break;
+        }
+    }
 }
