@@ -80,7 +80,9 @@ void decode(int height, int width, char *p1_star_img, char *p2_star_img, char *q
     FILE *secret = fopen("secretE.txt", "w");
     for (int i = 0; i < height * width; i++)
     {
-        fprintf(secret, "%d ", image[i]);
+        int temp;
+        temp = image[i];
+        fprintf(secret, "%d ", temp);
         if (i % 100 == 0)
         {
             fprintf(secret, "\n");

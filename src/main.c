@@ -1,6 +1,8 @@
 #include "PGM.h"
+#include <time.h>
 int main()
 {
+    srand(time(0));
     char *fname = "columns.ascii.pgm";
     int height, width, *image;
     image = read_from_pgm(fname, &height, &width);
@@ -13,6 +15,7 @@ int main()
         omp_set_num_threads(bench_mark_Thread[i]);
         printf("%d\n", omp_get_num_threads());
         startT = omp_get_wtime();
+        encode(image, fname, sd, height, width);
         decode(height, width, "P1*_columns.ascii.pgm", "P2*_columns.ascii.pgm", "Q1*_columns.ascii.pgm", "Q2*_columns.ascii.pgm");
         endT = omp_get_wtime();
         bench_markTime[i] = endT - startT;
